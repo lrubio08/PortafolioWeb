@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-!dau__#mipzxpox*_9j1k7f)ba0yr*p_br2b^egnztqluo7i9@
 DEBUG = False
 
 APP_NAME = os.environ.get("FLY_APP_NAME")
-ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev"]
+ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev",]
 
 
 # Application definition
@@ -42,18 +42,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Mis app
-    'app_portafolio'
+    'app_portafolio',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ["https://luisrubiodev.fly.dev",]
 
 # Configuración de seguridad
 X_FRAME_OPTIONS = 'DENY'
